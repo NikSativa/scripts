@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>sn_ViewSpec</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import Quick
+import Nimble
+import Spry_Nimble
+import NBUIKit
+import NBFoundation
+
+@testable import NBRewards
+@testable import NBFoundationTestHelpers
+@testable import NBUIKitTestHelpers
+
+private typealias ViewID = &lt;#ClassName#&gt;.ViewID
+
+class &lt;#ClassName#&gt;Spec: QuickSpec {
+    override func spec() {
+        describe("&lt;#ClassName#&gt;") {
+            var subject: &lt;#ClassName#&gt;!
+            
+            beforeEach {
+                subject = createView(&lt;#ClassName#&gt;.self)
+                testView(subject)
+            }
+            
+            describe("configures UI") {
+                let state = &lt;#ClassName#&gt;State.testMake()
+                beforeEach {
+                    subject.configure(with: state)
+                }
+                
+                it("container") {
+                    expect(Theme.View.&lt;#background style#&gt;).to(beAppliedTo(subject))
+                }
+            }
+        }
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B6EFEE62-7533-4DB1-8904-FB281268E269</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>sn_ViewSpec</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+	<key>IDECodeSnippetSummary</key>
+	<string>ViewSpec placeholders for testing</string>
+</dict>
+</plist>

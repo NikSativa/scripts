@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>A module to create a view controller with options to add a Kitchen and a View State Factory</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Name:</string>
+			<key>Description</key>
+			<string>The name of the component to create</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Default</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>ViewController</string>
+			<key>Name</key>
+			<string>View Controller</string>
+			<key>Description</key>
+			<string>Create a View Controller with the same name</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>Manager</string>
+			<key>Name</key>
+			<string>Manager</string>
+			<key>Description</key>
+			<string>Whether to create a Manager with the same name</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>Factory</string>
+			<key>Name</key>
+			<string>View State Factory</string>
+			<key>Description</key>
+			<string>Whether to create a View State Factory with the same name</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>Default</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

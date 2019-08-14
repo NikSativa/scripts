@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>sn_labelspec</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>it("&lt;# var name #&gt; should have correct text and style") {
+    let label = self.getView(ViewID.&lt;# var name #&gt;) as! UILabel
+    expect(label.text).to(equal(state.&lt;#title#&gt;))
+    expect(Theme.Label.brandon&lt;#Bold17SoftBlackStyle#&gt;).to(beAppliedTo(label))
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0AB89842-C8D3-445D-B2F4-7FDC544D1711</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>UILabel 'it' test</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>sn_label spec</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
