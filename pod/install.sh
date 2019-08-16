@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pod _1.7.5_ install
+[ -d "./bin" ] && ./bin/pod install || pod install

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pod _1.7.5_ update
+[ -d "./bin" ] && ./bin/pod update || pod update

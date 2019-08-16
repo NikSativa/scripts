@@ -7,8 +7,8 @@ Pods.xcodeproj|Sample.xcodeproj)
 #echo "skipping ${f}"
 ;;
 *)
-echo $f
-synx -q -p $f
+#echo $f
+[ -d "./bin" ] && ./bin/synx -q -p $f || synx -q -p $f
 ;;
 esac
 
