@@ -8,7 +8,7 @@ Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
 ;;
 *)
 #echo $f
-[ -d "./bin" ] && ./bin/synx -q -p $f || synx -q -p $f
+[ -d "./bin" ] && ./bin/synx -q $f || synx -q $f
 ;;
 esac
 
