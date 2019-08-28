@@ -114,7 +114,7 @@ if $closeXcode
 then
     echo "====> killing Xcode"
     killall Xcode
-    sleep 0.1
+    sleep 1
 fi
 
 echo "====> removing DSStore"
@@ -165,7 +165,7 @@ sh $script_full_path/xunique.sh
 if $closeXcode
 then
     echo "====> open Xcode"
-    sleep 0.1
+    sleep 1
     xed .
 fi
 
