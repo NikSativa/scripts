@@ -4,13 +4,12 @@ for f in $(find . -name "*.xcodeproj" -not -path "./.bundle/*" -not -path "./Pod
 
 case $(basename $f) in
 Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
-echo "skipping ${f}"
+#echo "skipping ${f}"
 continue
 
 esac
 echo $f
-echo $(dirname $f)
-#PARAMS='--no-sort-by-name -q '${f}
-#[ -d "./bin" ] && ./bin/synx ${PARAMS} || synx ${PARAMS}
+PARAMS='--no-sort-by-name -q '${f}
+[ -d "./bin" ] && ./bin/synx ${PARAMS} || synx ${PARAMS}
 
 done
