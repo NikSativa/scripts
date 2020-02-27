@@ -8,6 +8,7 @@ forceUpdateMaster=false
 closeXcode=true
 rmDerivedData=true
 removeCopyrigts=false
+xcodeSort=true
 
 for i in "$@"
 do
@@ -36,6 +37,21 @@ case $i in
 
             0|false|no)
                 closeXcode=false
+            ;;
+
+            *) # unknown option
+            ;;
+        esac
+    ;;
+
+    -s=*|-sort=*)
+        case "${i#*=}" in
+            1|true|yes)
+                xcodeSort=true
+            ;;
+
+            0|false|no)
+                xcodeSort=false
             ;;
 
             *) # unknown option
@@ -156,11 +172,14 @@ then
     fi
 fi
 
-echo "====> synx projects"
-sh $script_full_path/synx.sh
+if $xcodeSort
+then
+    echo "====> synx projects"
+    sh $script_full_path/synx.sh
 
-echo "====> xUniquify projects"
-sh $script_full_path/xunique.sh
+    echo "====> xUniquify projects"
+    sh $script_full_path/xunique.sh
+fi
 
 if $closeXcode
 then
