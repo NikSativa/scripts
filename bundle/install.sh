@@ -1,3 +1,4 @@
 #!/bin/sh
 
-bundle install --path='./.bundle' --binstubs='./bin'
+bundle install --path='./.bundle'
+bundle binstubs --all --path='./.bin'

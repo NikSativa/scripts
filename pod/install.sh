@@ -1,3 +1,3 @@
 #!/bin/sh
 
-[ -d "./bin" ] && ./bin/pod install || pod install
+[ -d "./.bin" ] && ./.bin/pod install || pod install

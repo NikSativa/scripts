@@ -1,3 +1,3 @@
 #!/bin/sh
 
-[ -d "./bin" ] && ./bin/pod deintegrate || pod deintegrate
+[ -d "./.bin" ] && ./.bin/pod deintegrate || pod deintegrate
