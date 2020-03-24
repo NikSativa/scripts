@@ -34,7 +34,7 @@ then
     sudo pip install xUnique
 fi
 
-sh $script_full_path/initila/install.sh
+sh $script_full_path/initial/install.sh
 
 echo "====> installing bundler"
 sudo gem install bundler
