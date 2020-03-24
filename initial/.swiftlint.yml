@@ -1,0 +1,73 @@
+excluded:
+  - Pods
+  - Core
+  - scripts
+disabled_rules:
+  - type_name
+  - unused_optional_binding
+  - cyclomatic_complexity
+  - file_length
+  - function_body_length
+  - identifier_name
+  - line_length
+  - nesting
+  - trailing_whitespace
+  - no_extension_access_modifier
+  - function_parameter_count
+opt_in_rules:
+  - switch_case_alignment
+  - leading_whitespace
+  - closure_spacing
+  - conditional_returns_on_newline
+  - contains_over_first_not_nil
+  - explicit_init
+  - first_where
+  - force_unwrapping
+  - is_disjoint
+  - joined_default_parameter
+  - literal_expression_end_indentation
+  - multiline_parameters
+  - multiple_closures_with_trailing_closure
+  - no_extension_access_modifier
+  - overridden_super_call
+  - private_outlet
+  - prohibited_super_call
+  - quick_discouraged_call
+  - redundant_nil_coalescing
+  - superfluous_disable_command
+  - switch_case_on_newline
+  - xctfail_message
+
+private_outlet:
+  allow_private_set: false
+statement_position:
+  statement_mode: default #uncuddled_else
+
+custom_rules:
+  import_thirdparty_library:
+    name: "Third party libraries used without wrapper"
+    regex: 'import\s(Kingfisher|Leanplum|SplunkMint|Alamofire|Localytics|SignalSDK|ReachabilitySwift|UserNotifications)'
+    match_kinds:
+      - argument
+      - identifier
+      - keyword
+      - number
+      - objectliteral
+      - parameter
+      - string
+      - string_interpolation_anchor
+      - typeidentifier
+    message: "Must use the wrappers written for third party libraries"
+    severity: error
+  vertical_whitespace_opening_braces:
+    included: ".*.swift"
+    regex: '[{(\[][ \t]*\n[ \t]*\n'
+    name: "Vertical Whitespace after Opening Braces"
+    message: "Don't include vertical whitespace (empty line) after opening braces."
+    severity: warning
+  vertical_whitespace_closing_braces:
+    included: ".*.swift"
+    regex: '\n[ \t]*\n[ \t]*[)}\]]'
+    name: "Vertical Whitespace before Closing Braces"
+    message: "Don't include vertical whitespace (empty line) before closing braces."
+    severity: warning

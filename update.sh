@@ -117,9 +117,6 @@ case $i in
             ;;
         esac
     ;;
-
-    *) # unknown option
-    ;;
 esac
 
 done

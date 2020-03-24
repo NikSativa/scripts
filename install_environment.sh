@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if [ "$EUID" -ne 0 ] then
-  echo "Please run as root (`sudo` needed)"
-  exit 1
-fi
-
 xunique=true
 
 for i in "$@"
@@ -25,17 +20,29 @@ case $i in
             ;;
         esac
     ;;
+esac
 done
+
+script_full_path=$(dirname "$0")
 
 if $xunique
 then
     echo "====> installing pip"
-    easy_install pip
+    sudo easy_install pip
 
     echo "====> installing xUnique"
-    pip install xUnique
+    sudo pip install xUnique
 fi
 
-script_full_path=$(dirname "$0")
+sh $script_full_path/initila/install.sh
+
+echo "====> installing bundler"
+sudo gem install bundler
+
+echo "====> installing bundler"
+sudo gem install bundler
+
 echo "====> installing bundle"
 sh $script_full_path/bundle/install.sh
+
+exit 0
