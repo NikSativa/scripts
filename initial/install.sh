@@ -12,3 +12,4 @@ copy() {
 
 copy ".swiftlint.yml"
 copy "Gemfile"
+copy ".gitignore"
