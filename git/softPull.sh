@@ -3,7 +3,6 @@
 git fetch --all
 git pull
 
-git submodule foreach 'git fetch --all; 
-git pull;
-git submodule update --recursive; 
-git clean -dfx'
+git submodule foreach 'git fetch --all;'
+git submodule update --merge --recursive;
+git clean -dfx
