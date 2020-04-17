@@ -4,5 +4,4 @@ git fetch --all
 git pull
 
 git submodule foreach 'git fetch --all;'
-git pull;
-git submodule update --recursive;
+git submodule update --merge --recursive;

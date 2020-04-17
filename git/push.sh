@@ -1,4 +1,8 @@
 #!/bin/sh
 
-git submodule foreach 'git add .;git commit -a -m "no message"; git push origin master' 
-git commit -a -m "no message"; git push origin master
+message=${1:-"no message"};
+
+git submodule foreach "git add .;git commit -m ${message};";
+git add .;
+git commit -m $message;
+git push --recurse-submodules=on-demand;
