@@ -1,13 +1,8 @@
 #!/bin/bash
 #
-# Usage: ./commit_everything.sh "Commit message"
+# Usage: sh push.sh "Commit message"
 
-BOLD=$(tput bold)
-BLACK=$(tput setaf 0)
-WHITE=$(tput setaf 7)
-BLUE=$(tput setaf 4)
-GREEN=$(tput setaf 2)
-NORMAL=$(tput sgr0)
+source $(dirname "$0")/../colors.sh
 
 message=${1:-"no message"};
 
