@@ -1,7 +1,21 @@
 #!/bin/sh
 
-git fetch --all
-git pull
+optionBranchName=""
 
-git submodule foreach 'git fetch --all;'
-git submodule update --merge --recursive;
+for i in "$@"
+do
+
+case $i in
+    -b=*|-branch=*)
+		optionBranchName="${i#*=}"
+    ;;
+esac
+
+done
+
+if [ -z $optionBranchName ] || [ $optionBranchName == "HEAD" ]; then
+	optionBranchName="master"
+fi
+
+git pull origin $optionBranchName
+git submodule foreach --recursive git pull origin $optionBranchName
