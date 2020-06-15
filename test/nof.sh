@@ -4,13 +4,14 @@ source $(dirname "$0")/../colors.sh
 DIR=$(git rev-parse --show-cdup)
 
 declare -a RESULT=()
-for FILE in $(find $DIR -regex ".*\.swift")
+declare -a FILES=$(find $DIR -type f -regex ".*\.swift")
+for FILE in ${FILES[@]}
 do
    if [[ ! $FILE == */Pods/* ]]
    then
       if grep -q -e '^ *fdescribe(' -e '^ *fcontext(' -e '^ *fit(' -- "$FILE"
       then
-         RESULT+=($(basename "$FILE"))
+         RESULT+=($FILE)
       fi
    fi
 done
@@ -21,7 +22,8 @@ then
 else
    for FILE in ${RESULT[@]}
    do
+      FILE=$(basename "$FILE")
       echo "${RED}$FILE${NORMAL}"
    done
-   echo "${RED}${BOLD}do not commit fdescribe, fcontext, or fit${NORMAL}"
+   echo "${CYAN}${BOLD}Do not commit: fdescribe, fcontext, or fit${NORMAL}"
 fi
