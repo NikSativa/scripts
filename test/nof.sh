@@ -1,28 +1,27 @@
 #!/bin/sh
 source $(dirname "$0")/../colors.sh
 
-DIR=$(git rev-parse --show-cdup)
-
 silent=false
+fromCurrentFolder=true
 
 for i in "$@"
 do
-
-case $i in
-    -s=*|-silent=*)
-        case "${i#*=}" in
-            1|true|yes)
-                silent=true
-            ;;
-
-            0|false|no)
-                silent=false
-            ;;
-        esac
-    ;;
-esac
-
+  case $i in
+      -s|-silent)
+          silent=true
+      ;;
+      -r|-root)
+          fromCurrentFolder=false
+      ;;
+  esac
 done
+
+if $fromCurrentFolder
+then
+  DIR="./"
+else
+  DIR=$(git rev-parse --show-cdup)
+fi
 
 declare -a RESULT=()
 declare -a FILES=$(find $DIR -type f -regex ".*\.swift")
