@@ -55,9 +55,6 @@ then
 else
   for FILE in ${RESULT[@]}
   do
-    # sed 's/fit(/it(/g' $FILE > $FILE
-    # sed 's/fit(/it(/g' $FILE > $FILE
-    # sed 's/fit(/it(/g' $FILE > $FILE
     sed -i '' -e 's/fit(/it(/g;' -e 's/fcontext(/context(/g;' -e 's/fdescribe(/describe(/g;' $FILE
 
     FILE=$(basename "$FILE")
