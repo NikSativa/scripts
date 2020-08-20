@@ -27,7 +27,7 @@ declare -a RESULT=()
 declare -a FILES=$(find $DIR -type f -regex ".*\.swift")
 for FILE in ${FILES[@]}
 do
-   if [[ ! $FILE == */Pods/* ]]
+   if [[ ! $FILE == */Pods/* ]] && [[ ! $FILE == **Quick+** ]] && [[ ! $FILE == **/Quick/** ]] && [[ ! $FILE == *+Quick+** ]]
    then
       if grep -q -e '^ *fdescribe(' -e '^ *fcontext(' -e '^ *fit(' -- "$FILE"
       then
