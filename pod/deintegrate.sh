@@ -1,3 +1,4 @@
 #!/bin/sh
 
-[ -d "./.bin" ] && ./.bin/pod deintegrate || pod deintegrate
+script_full_path=$(dirname "$0")
+sh $script_full_path/pod.sh deintegrate

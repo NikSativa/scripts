@@ -1,5 +1,7 @@
 #!/bin/sh
 
+script_full_path=$(dirname "$0")
+
 xunique=true
 
 for i in "$@"
@@ -23,8 +25,6 @@ case $i in
 esac
 done
 
-script_full_path=$(dirname "$0")
-
 if $xunique
 then
     echo "====> installing pip"
@@ -35,12 +35,6 @@ then
 fi
 
 sh $script_full_path/initial/install.sh
-
-echo "====> installing bundler"
-sudo gem install bundler
-
-echo "====> installing bundler"
-sudo gem install bundler
 
 echo "====> installing bundle"
 sh $script_full_path/bundle/install.sh

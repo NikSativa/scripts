@@ -10,12 +10,10 @@ for f in $(find . -name "*.xcodeproj" \
 	-not -path "./vendor/*"); do
 
 case $(basename $f) in
-Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
-#echo "skipping ${f}"
-continue
-
+	Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
+	#echo "skipping ${f}"
+	continue
 esac
-echo $f
-xunique $f -c
-
+	echo $f
+	xunique $f -c
 done

@@ -86,7 +86,7 @@ case $i in
                 resetSubmodules=true
                 forceUpdateMaster=false
             ;;
-            
+
             0|false)
                 resetSubmodules=false
                 forceUpdateMaster=false

@@ -12,6 +12,7 @@ Carthage/*
 .bundle/
 bin/
 .bin/
+.vendor/
 
 ## XCode local data
 Build/

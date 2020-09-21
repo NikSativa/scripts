@@ -1,18 +1,2 @@
 ## MacOS
 .DS_Store
-
-## User settings
-xcuserdata/
-
-## Package Managers
-Pods/*
-Carthage/*
-
-## Bundler
-.bundle/
-bin/
-.bin/
-
-## XCode local data
-Build/
-DerivedData/
