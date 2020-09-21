@@ -7,7 +7,7 @@ killall Xcode
 sleep 1
 
 echo "====> removing All"
-sh $script_full_path/rm/all.sh
+sh $script_full_path/rm/all.sh $@
 
 echo "====> installing bundle"
 sh $script_full_path/bundle/install.sh
