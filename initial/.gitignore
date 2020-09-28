@@ -7,6 +7,8 @@ xcuserdata/
 ## Package Managers
 Pods/*
 Carthage/*
+Packages/*
+.swiftpm/*
 
 ## Bundler
 .bundle/
@@ -17,3 +19,4 @@ bin/
 ## XCode local data
 Build/
 DerivedData/
+.build/
