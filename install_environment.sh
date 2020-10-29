@@ -6,23 +6,15 @@ xunique=true
 
 for i in "$@"
 do
+    case $i in
+        -x|-xunique)
+            xunique=false
+        ;;
 
-case $i in
-    -x=*|-xunique=*)
-        case "${i#*=}" in
-            1|true|yes)
-                xunique=true
-            ;;
-
-            0|false|no)
-                xunique=false
-            ;;
-
-            *) # unknown option
-            ;;
-        esac
-    ;;
-esac
+        +x|+xunique)
+            xunique=true
+        ;;
+    esac
 done
 
 if $xunique
@@ -38,5 +30,3 @@ sh $script_full_path/initial/install.sh
 
 echo "====> installing bundle"
 sh $script_full_path/bundle/install.sh
-
-exit 0

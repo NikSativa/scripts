@@ -7,20 +7,13 @@ removeLocks=false
 for i in "$@"
 do
     case $i in
-    -rl=*|-removeLocks=*)
-        case "${i#*=}" in
-            1|true|yes)
-                removeLocks=true
-            ;;
+    	-rl|-removeLocks)
+			removeLocks=false
+		;;
 
-            0|false|no)
-                removeLocks=false
-            ;;
-
-            *) # unknown option
-            ;;
-        esac
-    ;;
+		+rl|+removeLocks)
+			removeLocks=true
+		;;
     esac
 done
 
