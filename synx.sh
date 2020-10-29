@@ -7,18 +7,10 @@ prune=""
 
 for i in "$@"; do
 	case $i in
-	    -p=*|-prune=*)
-	        case "${i#*=}" in
-	            1|true|yes)
-	                prune=" -p"
-	            ;;
-
-	            0|false|no)
-	                prune=""
-	            ;;
-	        esac
-	        ;;
 	    -p|-prune)
+			prune=""
+	    ;;
+	    +p|+prune)
 			prune=" -p"
 		;;
 	esac
