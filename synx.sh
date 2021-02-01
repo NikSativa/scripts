@@ -24,6 +24,7 @@ for f in $(find . -name "*.xcodeproj" \
 					-not -path "**/.build/**" \
 					-not -path "**/DrivedData/**" \
 					-not -path "**/fastlane/**" \
+					-not -path "**/SourcePackages/**" \
 					-not -path "**/vendor/**"); do
 	case $(basename $f) in
 		Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
