@@ -99,5 +99,3 @@ then
     sleep 1
     xed .
 fi
-
-say jobs done

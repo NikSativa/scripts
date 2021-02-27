@@ -9,5 +9,3 @@ sleep 1
 
 sh $script_full_path/synx.sh +p
 sh $script_full_path/xunique.sh
-
-say sorting completed

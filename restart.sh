@@ -18,5 +18,3 @@ sh $script_full_path/pod/install.sh
 echo "====> opening Xcode"
 sleep 1
 xed .
-
-say jobs done
