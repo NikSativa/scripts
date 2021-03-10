@@ -2,6 +2,7 @@
 
 for f in $(find . -name "*.xcodeproj" \
 					-not -path "**/.bundle/**" \
+					-not -path "**/Core/**" \
 					-not -path "**/Pods/**" \
 					-not -path "**/.bin/**" \
 					-not -path "**/Build/**" \
@@ -13,7 +14,7 @@ for f in $(find . -name "*.xcodeproj" \
 
 case $(basename $f) in
 	Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
-	#echo "skipping ${f}"
+	# echo "skipping ${f}"
 	continue
 esac
 	echo $f
