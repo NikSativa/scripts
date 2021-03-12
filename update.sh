@@ -1,5 +1,6 @@
 #!/bin/sh
 
+synxPrune=""
 podUpdate=false
 closeXcode=true
 rmDerivedData=true
@@ -48,6 +49,10 @@ do
         +p|+pod)
             podUpdate=true
         ;;
+
+        +sp|+prune|+synxPrune)
+            synxPrune="+p"
+        ;;
     esac
 done
 
@@ -86,8 +91,8 @@ fi
 
 if $xcodeSort
 then
-    echo "====> synx projects"
-    sh $script_full_path/synx.sh
+    echo "====> synx projects "
+    sh $script_full_path/synx.sh $synxPrune
 
     echo "====> xUniquify projects"
     sh $script_full_path/xunique.sh

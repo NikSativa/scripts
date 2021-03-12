@@ -33,7 +33,7 @@ for f in $(find . -name "*.xcodeproj" \
 		continue
 	esac
 
-	echo "${GREEN}synx ${f}${NORMAL}"
 	PARAMS="--no-sort-by-name -q${prune} ${f}"
+	echo "${GREEN}synx ${PARAMS}${NORMAL}"
 	sh $script_full_path/bundle/bundle.sh exec synx ${PARAMS}
 done
