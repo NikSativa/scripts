@@ -1,11 +1,14 @@
 #!/bin/sh
 
+source $(dirname "$0")/colors.sh
+
 synxPrune=""
 podUpdate=false
 closeXcode=true
 rmDerivedData=true
 removeCopyrigts=false
 xcodeSort=true
+help=false
 
 for i in "$@"
 do
@@ -38,10 +41,6 @@ do
             rmDerivedData=false
         ;;
 
-        +d|+derivedData)
-            rmDerivedData=true
-        ;;
-
         -p|-pod)
             podUpdate=false
         ;;
@@ -53,8 +52,36 @@ do
         +sp|+prune|+synxPrune)
             synxPrune="+p"
         ;;
+
+        -h|-help|+help|help)
+            help=true
+        ;;
     esac
 done
+
+if $help
+then
+    # echo "-rc|-removeCopyrigts"
+    # echo "+rc|+removeCopyrigts"
+    echo "
+    -x|-xcode              ${BOLD}disable${NORMAL}: close Xcode at the beginning and open Xcode at the end
+    +x|+xcode              ${BOLD}enable${NORMAL}:  close Xcode at the beginning and open Xcode at the end
+
+    -s|-sort               ${BOLD}disable${NORMAL}: synx & xUnique xcodeproj
+    +s|+sort               ${BOLD}enable${NORMAL}:  synx & xUnique xcodeproj (default parameter)
+
+    -d|-derivedData        ${BOLD}disable${NORMAL}: remove DerivedData (enabled by default)
+    +d|+derivedData        ${BOLD}enable${NORMAL}:  remove DerivedData (enabled by default)
+
+    -p|-pod                ${BOLD}pod install${NORMAL} (default parameter)
+    +p|+pod                ${BOLD}pod update${NORMAL}
+
+    +sp|+prune|+synxPrune  ${BOLD}prune${NORMAL} unused files from disk (disabled by default)
+
+    -h|-help|+help|help    current ${BOLD}help${NORMAL}
+    "
+    exit 0
+fi
 
 script_full_path=$(dirname "$0")
 
