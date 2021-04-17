@@ -38,7 +38,11 @@ declare -a FILES=$(find . -name "*.swift" \
 					-not -path "**Quick+**")
 for FILE in ${FILES[@]}
 do
-	if grep -q -e '^ *fdescribe(' -e '^ *fcontext(' -e '^ *fit(' -- "$FILE"
+	if grep -q -e '^ *fdescribe(' \
+	           -e '^ *fdescribeHeader(' \
+						 -e '^ *fcontext(' \
+						 -e '^ *fit(' \
+						 -- "$FILE"
 	then
 		RESULT+=($FILE)
 	fi
@@ -63,7 +67,11 @@ exit 1
 else
 	for FILE in ${RESULT[@]}
 	do
-		sed -i '' -e 's/fit(/it(/g;' -e 's/fcontext(/context(/g;' -e 's/fdescribe(/describe(/g;' $FILE
+		sed -i '' -e 's/fit(/it(/g;' \
+		          -e 's/fcontext(/context(/g;' \
+							-e 's/fdescribe(/describe(/g;' \
+							-e 's/fdescribeHeader(/describeHeader(/g;' \
+							$FILE
 
 		FILE=$(basename "$FILE")
 		echo "${GREEN}$FILE${NORMAL}"
