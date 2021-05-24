@@ -3,22 +3,22 @@
 source $(dirname "$0")/colors.sh
 
 synxPrune=""
+pruneTags=false
 podUpdate=false
 closeXcode=true
 rmDerivedData=true
-removeCopyrigts=false
 xcodeSort=true
 help=false
 
 for i in "$@"
 do
     case $i in
-        -rc|-removeCopyrigts)
-            removeCopyrigts=false
+        -pt|-pruneTags)
+            pruneTags=false
         ;;
 
-        +rc|+removeCopyrigts)
-            removeCopyrigts=true
+        +pt|+pruneTags)
+            pruneTags=true
         ;;
 
         -x|-xcode)
@@ -61,8 +61,6 @@ done
 
 if $help
 then
-    # echo "-rc|-removeCopyrigts"
-    # echo "+rc|+removeCopyrigts"
     echo "
     -x|-xcode              ${BOLD}disable${NORMAL}: close Xcode at the beginning and open Xcode at the end
     +x|+xcode              ${BOLD}enable${NORMAL}:  close Xcode at the beginning and open Xcode at the end
@@ -101,10 +99,10 @@ then
     sh $script_full_path/rm/derivedData.sh
 fi
 
-if $removeCopyrigts
+if $pruneTags
 then
-    echo "====> removing copyrights"
-    sh $script_full_path/rm/copyrights.sh
+    echo "====> pruning local tags"
+    sh $script_full_path/git/prune_local_tags.sh
 fi
 
 if $podUpdate
