@@ -6,7 +6,7 @@ synxPrune=""
 pruneTags=false
 podUpdate=false
 closeXcode=true
-rmDerivedData=true
+rmDerivedData=false
 xcodeSort=true
 help=false
 
@@ -39,6 +39,10 @@ do
 
         -d|-derivedData)
             rmDerivedData=false
+        ;;
+
+        +d|+derivedData)
+            rmDerivedData=true
         ;;
 
         -p|-pod)
