@@ -6,7 +6,7 @@ synxPrune=""
 pruneTags=false
 podUpdate=false
 closeXcode=true
-rmDerivedData=false
+cleanup=false
 xcodeSort=true
 help=false
 
@@ -37,12 +37,12 @@ do
             xcodeSort=true
         ;;
 
-        -d|-derivedData)
-            rmDerivedData=false
+        -c|-cleanup)
+            cleanup=false
         ;;
 
-        +d|+derivedData)
-            rmDerivedData=true
+        +c|+cleanup)
+            cleanup=true
         ;;
 
         -p|-pod)
@@ -97,10 +97,10 @@ fi
 echo "====> removing DSStore"
 sh $script_full_path/rm/DSStore.sh
 
-if $rmDerivedData
+if $cleanup
 then
-    echo "====> cleaning DerivedData"
-    sh $script_full_path/rm/derivedData.sh
+    echo "====> cleaning project from Xcode cached data"
+    sh $script_full_path/rm/cleanup.sh
 fi
 
 if $pruneTags
