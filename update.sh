@@ -57,6 +57,10 @@ do
             synxPrune="+p"
         ;;
 
+        -sp|-prune|-synxPrune)
+            synxPrune=""
+        ;;
+
         -h|-help|+help|help)
             help=true
         ;;
@@ -66,21 +70,32 @@ done
 if $help
 then
     echo "
-    -x|-xcode              ${BOLD}disable${NORMAL}: close Xcode at the beginning and open Xcode at the end
-    +x|+xcode              ${BOLD}enable${NORMAL}:  close Xcode at the beginning and open Xcode at the end
+    Close Xcode at the beginning and open Xcode at the end:
+    -x|-xcode             ${BOLD}disable${NORMAL}
+    +x|+xcode             ${BOLD}enable${NORMAL} (default)
 
-    -s|-sort               ${BOLD}disable${NORMAL}: synx & xUnique xcodeproj
-    +s|+sort               ${BOLD}enable${NORMAL}:  synx & xUnique xcodeproj (default parameter)
+    Synx & xUnique xcodeproj:
+    -s|-sort              ${BOLD}disable${NORMAL}
+    +s|+sort              ${BOLD}enable${NORMAL} (default)
 
-    -d|-derivedData        ${BOLD}disable${NORMAL}: remove DerivedData (enabled by default)
-    +d|+derivedData        ${BOLD}enable${NORMAL}:  remove DerivedData (enabled by default)
+    Synx unused files from disk:
+    -sp|-prune|-synxPrune ${BOLD}prune${NORMAL} (default)
+    +sp|+prune|+synxPrune ${BOLD}prune${NORMAL}
 
-    -p|-pod                ${BOLD}pod install${NORMAL} (default parameter)
-    +p|+pod                ${BOLD}pod update${NORMAL}
+    Remove DerivedData and SPM cache:
+    -c|-cleanup           ${BOLD}disable${NORMAL} (default)
+    +c|+cleanup           ${BOLD}enable${NORMAL}
 
-    +sp|+prune|+synxPrune  ${BOLD}prune${NORMAL} unused files from disk (disabled by default)
+    Cocoapods:
+    -p|-pod               ${BOLD}pod install${NORMAL} (default)
+    +p|+pod               ${BOLD}pod update${NORMAL}
 
-    -h|-help|+help|help    current ${BOLD}help${NORMAL}
+    Removing local tags which are not represented remotely - ${RED}${BOLD}dangerous behavior! be careful ${NORMAL}
+    -pt|-pruneTags        ${BOLD}disable${NORMAL} (default)
+    +pt|+pruneTags        ${BOLD}enable${NORMAL}
+
+    Current ${BOLD}help${NORMAL}
+    -h|-help|+help|help
     "
     exit 0
 fi
