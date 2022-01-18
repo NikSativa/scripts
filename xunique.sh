@@ -1,16 +1,7 @@
 #!/bin/sh
 
 for f in $(find . -name "*.xcodeproj" \
-					-not -path "**/.bundle/**" \
-					-not -path "**/Core/**" \
-					-not -path "**/Pods/**" \
-					-not -path "**/.bin/**" \
-					-not -path "**/Build/**" \
-					-not -path "**/.build/**" \
-					-not -path "**/DrivedData/**" \
-					-not -path "**/fastlane/**" \
-					-not -path "**/SourcePackages/**" \
-					-not -path "**/vendor/**"); do
+					-not -path "**/**/**"); do
 
 case $(basename $f) in
 	Pods.xcodeproj|Sample.xcodeproj|dummy.xcodeproj)
