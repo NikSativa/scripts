@@ -1,0 +1,105 @@
+# options
+--swiftversion 5.5
+# --self init-only
+--importgrouping testable-last
+--commas always
+--trimwhitespace always
+--indent 4
+--ifdef no-indent
+--wraparguments after-first
+--wrapparameters after-first
+--wrapcollections after-first
+--wrapconditions after-first
+--wrapreturntype preserve
+--closingparen same-line
+--funcattributes prev-line
+--typeattributes prev-line
+--extensionacl on-extension
+--patternlet inline
+--elseposition same-line
+--guardelse same-line
+--emptybraces linebreak
+--indentcase false
+--xcodeindentation true
+--linebreaks lf
+--decimalgrouping ignore
+--binarygrouping ignore
+--octalgrouping ignore
+--hexgrouping ignore
+--fractiongrouping disabled
+--exponentgrouping disabled
+--hexliteralcase uppercase
+--exponentcase uppercase
+--semicolons never
+--operatorfunc no-space
+--ranges no-space
+--stripunusedargs unnamed-only
+
+# rules \
+--rules andOperator,\
+blankLinesAroundMark,\
+blankLinesAtEndOfScope,\
+blankLinesAtStartOfScope,\
+blankLinesBetweenScopes,\
+braces,\
+consecutiveBlankLines,\
+consecutiveSpaces,\
+duplicateImports,\
+elseOnSameLine,\
+emptyBraces,\
+enumNamespaces,\
+extensionAccessControl,\
+hoistPatternLet,\
+indent,\
+leadingDelimiters,\
+linebreakAtEndOfFile,\
+linebreaks,\
+modifierOrder,\
+numberFormatting,\
+preferKeyPath,\
+# redundantExtensionACL,\
+redundantFileprivate,\
+redundantGet,\
+redundantInit,\
+redundantLet,\
+redundantLetError,\
+redundantNilInit,\
+redundantParens,\
+redundantPattern,\
+redundantRawValues,\
+# redundantSelf,\
+redundantType,\
+redundantVoidReturnType,\
+semicolons,\
+sortedImports,\
+sortedSwitchCases,\
+spaceAroundBraces,\
+spaceAroundBrackets,\
+spaceAroundComments,\
+spaceAroundGenerics,\
+spaceAroundOperators,\
+spaceAroundParens,\
+spaceInsideBraces,\
+spaceInsideBrackets,\
+spaceInsideComments,\
+spaceInsideGenerics,\
+spaceInsideParens,\
+# strongOutlets,\
+strongifiedSelf,\
+todos,\
+trailingClosures,\
+trailingCommas,\
+typeSugar,\
+trailingSpace,\
+unusedArguments,\
+void,\
+# wrap,\
+wrapArguments,\
+wrapAttributes,\
+wrapEnumCases,\
+# wrapMultilineStatementBraces,\
+wrapSwitchCases
+
+--exclude Pods,\
+Generated,\
+Internal/PaymentSDK-ios

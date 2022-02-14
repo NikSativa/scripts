@@ -10,4 +10,5 @@ List of scripts which are needed every working day.
 ### Structure
 
 - `folder name` as a group of commands like `bundle` for the bundler or `pod` for the cocoapods etc.
-- 
+
+- [behavior scripts for xcode](./behavior/README.md)
