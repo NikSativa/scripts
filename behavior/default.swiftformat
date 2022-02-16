@@ -1,6 +1,6 @@
 # options
 --swiftversion 5.5
-# --self init-only
+--self init-only
 --importgrouping testable-last
 --commas always
 --trimwhitespace always
@@ -34,9 +34,20 @@
 --operatorfunc no-space
 --ranges no-space
 --stripunusedargs unnamed-only
+--header strip
+--marktypes never
+--markextensions if-not-empty
+--typemark "MARK: - %t + %c"
+--groupedextension "MARK: - %t + %c"
+--extensionmark "MARK: - %t + %c"
+--redundanttype explicit
 
 # rules \
---rules andOperator,\
+--rules \
+# acronyms,\
+andOperator,\
+anyObjectProtocol,\
+assertionFailures,\
 blankLinesAroundMark,\
 blankLinesAtEndOfScope,\
 blankLinesAtStartOfScope,\
@@ -49,25 +60,35 @@ elseOnSameLine,\
 emptyBraces,\
 enumNamespaces,\
 extensionAccessControl,\
+fileHeader,\
 hoistPatternLet,\
 indent,\
+initCoderUnavailable,\
+isEmpty,\
 leadingDelimiters,\
 linebreakAtEndOfFile,\
 linebreaks,\
+# markTypes,\
 modifierOrder,\
 numberFormatting,\
+# organizeDeclarations,\
+# preferDouble,\
 preferKeyPath,\
 # redundantExtensionACL,\
+redundantBreak,\
+redundantClosure,\
 redundantFileprivate,\
 redundantGet,\
 redundantInit,\
 redundantLet,\
 redundantLetError,\
 redundantNilInit,\
+redundantObjc,\
 redundantParens,\
 redundantPattern,\
 redundantRawValues,\
-# redundantSelf,\
+# redundantReturn,\
+redundantSelf,\
 redundantType,\
 redundantVoidReturnType,\
 semicolons,\
@@ -96,10 +117,11 @@ void,\
 # wrap,\
 wrapArguments,\
 wrapAttributes,\
+wrapConditionalBodies,\
 wrapEnumCases,\
 # wrapMultilineStatementBraces,\
-wrapSwitchCases
+wrapSwitchCases,\
+yodaConditions
 
 --exclude Pods,\
-Generated,\
-Internal/PaymentSDK-ios
+Generated
