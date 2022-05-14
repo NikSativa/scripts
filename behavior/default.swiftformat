@@ -2,13 +2,13 @@
 --swiftversion 5.5
 --self init-only
 --importgrouping testable-last
---commas always
+--commas inline
 --trimwhitespace always
 --indent 4
 --ifdef no-indent
 --wraparguments after-first
 --wrapparameters after-first
---wrapcollections after-first
+--wrapcollections before-first
 --wrapconditions after-first
 --wrapreturntype preserve
 --closingparen same-line
@@ -18,7 +18,7 @@
 --patternlet inline
 --elseposition same-line
 --guardelse same-line
---emptybraces linebreak
+--emptybraces no-space
 --indentcase false
 --xcodeindentation true
 --linebreaks lf
@@ -92,6 +92,7 @@ redundantSelf,\
 redundantType,\
 redundantVoidReturnType,\
 semicolons,\
+sortDeclarations,\
 sortedImports,\
 sortedSwitchCases,\
 spaceAroundBraces,\
