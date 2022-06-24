@@ -76,7 +76,7 @@ numberFormatting,\
 preferKeyPath,\
 # redundantExtensionACL,\
 redundantBreak,\
-redundantClosure,\
+# redundantClosure,\
 redundantFileprivate,\
 redundantGet,\
 redundantInit,\
