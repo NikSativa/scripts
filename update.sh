@@ -7,7 +7,6 @@ pruneTags=false
 podUpdate=false
 closeXcode=true
 cleanup=false
-xcodeSort=true
 help=false
 
 for i in "$@"
@@ -27,14 +26,6 @@ do
 
         +x|+xcode)
             closeXcode=true
-        ;;
-
-        -s|-sort)
-            xcodeSort=false
-        ;;
-
-        +s|+sort)
-            xcodeSort=true
         ;;
 
         -c|-cleanup)
@@ -73,10 +64,6 @@ then
     Close Xcode at the beginning and open Xcode at the end:
     -x|-xcode             ${BOLD}disable${NORMAL}
     +x|+xcode             ${BOLD}enable${NORMAL} (default)
-
-    Synx & xUnique xcodeproj:
-    -s|-sort              ${BOLD}disable${NORMAL}
-    +s|+sort              ${BOLD}enable${NORMAL} (default)
 
     Synx unused files from disk:
     -sp|-prune|-synxPrune ${BOLD}prune${NORMAL} (default)
@@ -131,15 +118,6 @@ then
 else
     echo "====> installing pods"
     sh $script_full_path/pod/install.sh
-fi
-
-if $xcodeSort
-then
-    echo "====> synx projects "
-    sh $script_full_path/synx.sh $synxPrune
-
-    echo "====> xUniquify projects"
-    sh $script_full_path/xunique.sh
 fi
 
 if $closeXcode

@@ -19,7 +19,7 @@ done
 
 sh $script_full_path/DSStore.sh
 sh $script_full_path/derivedData.sh
-sh $script_full_path/Pods.sh
+# sh $script_full_path/Pods.sh
 
 if $removeLocks; then
 	echo "Removing 'Gemfile.lock' file"

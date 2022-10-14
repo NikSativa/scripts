@@ -1,3 +1,0 @@
-#!/bin/sh
-
-./scripts/nof.sh -h=1
