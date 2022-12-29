@@ -11,11 +11,12 @@
 --wrapcollections before-first
 --wrapconditions after-first
 --wrapreturntype preserve
---closingparen same-line
+--closingparen same-line #or balanced
 --funcattributes prev-line
 --typeattributes prev-line
+--varattributes preserve
 --extensionacl on-extension
---patternlet inline
+--patternlet inline #or hoist
 --elseposition same-line
 --guardelse same-line
 --emptybraces no-space
@@ -33,14 +34,23 @@
 --semicolons never
 --operatorfunc no-space
 --ranges no-space
---stripunusedargs unnamed-only
+--stripunusedargs unnamed-only #or always
 --header strip
 --marktypes never
 --markextensions if-not-empty
---typemark "MARK: - %t + %c"
---groupedextension "MARK: - %t + %c"
+--typemark "MARK: - %t"
+--groupedextension "MARK: - %c"
 --extensionmark "MARK: - %t + %c"
 --redundanttype explicit
+--typeblanklines remove
+--allman false
+--enumnamespaces always
+--someAny true
+--yodaswap always
+
+# wrap
+# --maxwidth 80
+# --wrapternary before-operators
 
 # rules \
 --rules \
@@ -48,19 +58,24 @@
 andOperator,\
 anyObjectProtocol,\
 assertionFailures,\
+blankLineAfterImports,\
 blankLinesAroundMark,\
 blankLinesAtEndOfScope,\
 blankLinesAtStartOfScope,\
+# blankLinesBetweenImports,\
 blankLinesBetweenScopes,\
+blockComments,\
 braces,\
 consecutiveBlankLines,\
 consecutiveSpaces,\
+docComments,\
 duplicateImports,\
 elseOnSameLine,\
 emptyBraces,\
 enumNamespaces,\
 extensionAccessControl,\
 fileHeader,\
+genericExtensions,\
 hoistPatternLet,\
 indent,\
 initCoderUnavailable,\
@@ -68,15 +83,17 @@ isEmpty,\
 leadingDelimiters,\
 linebreakAtEndOfFile,\
 linebreaks,\
-# markTypes,\
+markTypes,\
 modifierOrder,\
 numberFormatting,\
+opaqueGenericParameters,\
 # organizeDeclarations,\
 # preferDouble,\
 preferKeyPath,\
-# redundantExtensionACL,\
+redundantBackticks,\
 redundantBreak,\
 # redundantClosure,\
+redundantExtensionACL,\
 redundantFileprivate,\
 redundantGet,\
 redundantInit,\
@@ -84,6 +101,7 @@ redundantLet,\
 redundantLetError,\
 redundantNilInit,\
 redundantObjc,\
+redundantOptionalBinding,\
 redundantParens,\
 redundantPattern,\
 redundantRawValues,\
@@ -111,8 +129,8 @@ strongifiedSelf,\
 todos,\
 trailingClosures,\
 trailingCommas,\
-typeSugar,\
 trailingSpace,\
+typeSugar,\
 unusedArguments,\
 void,\
 # wrap,\
@@ -121,8 +139,13 @@ wrapAttributes,\
 wrapConditionalBodies,\
 wrapEnumCases,\
 # wrapMultilineStatementBraces,\
+wrapSingleLineComments,\
 wrapSwitchCases,\
 yodaConditions
 
 --exclude Pods,\
 Generated
+
+### comments
+# --sortDeclarations
+# Sorts the body of declarations with // swiftformat:sort and declarations # between // swiftformat:sort:begin and // swiftformat:sort:end comments.
