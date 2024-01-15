@@ -5,7 +5,10 @@
 --commas inline
 --trimwhitespace always
 --indent 4
+--tabwidth 4
+--smarttabs enabled
 --ifdef no-indent
+--indentstrings false
 --wraparguments after-first
 --wrapparameters after-first
 --wrapcollections before-first
@@ -47,6 +50,10 @@
 --enumnamespaces always
 --someAny true
 --yodaswap always
+--anonymousforeach convert
+--onelineforeach convert
+--shortoptionals always
+--voidtype void
 
 # wrap
 # --maxwidth 80
@@ -57,26 +64,32 @@
 # acronyms,\
 andOperator,\
 anyObjectProtocol,\
+applicationMain,\
 assertionFailures,\
 blankLineAfterImports,\
 blankLinesAroundMark,\
 blankLinesAtEndOfScope,\
 blankLinesAtStartOfScope,\
+# blankLinesBetweenChainedFunctions,\
 # blankLinesBetweenImports,\
 blankLinesBetweenScopes,\
 blockComments,\
 braces,\
+# conditionalAssignment,\
 consecutiveBlankLines,\
 consecutiveSpaces,\
 docComments,\
 duplicateImports,\
 elseOnSameLine,\
 emptyBraces,\
-enumNamespaces,\
+# enumNamespaces,\
 extensionAccessControl,\
 fileHeader,\
 genericExtensions,\
+headerFileName,\
+hoistAwait,\
 hoistPatternLet,\
+hoistTry,\
 indent,\
 initCoderUnavailable,\
 isEmpty,\
@@ -85,10 +98,12 @@ linebreakAtEndOfFile,\
 linebreaks,\
 markTypes,\
 modifierOrder,\
+noExplicitOwnership,\
 numberFormatting,\
 opaqueGenericParameters,\
 # organizeDeclarations,\
 # preferDouble,\
+preferForLoop,\
 preferKeyPath,\
 redundantBackticks,\
 redundantBreak,\
@@ -97,6 +112,7 @@ redundantExtensionACL,\
 redundantFileprivate,\
 redundantGet,\
 redundantInit,\
+# redundantInternal,\
 redundantLet,\
 redundantLetError,\
 redundantNilInit,\
@@ -107,12 +123,14 @@ redundantPattern,\
 redundantRawValues,\
 # redundantReturn,\
 redundantSelf,\
+redundantStaticSelf,\
 redundantType,\
 redundantVoidReturnType,\
 semicolons,\
 sortDeclarations,\
-sortedImports,\
-sortedSwitchCases,\
+sortImports,\
+sortSwitchCases,\
+sortTypealiases,\
 spaceAroundBraces,\
 spaceAroundBrackets,\
 spaceAroundComments,\
@@ -138,13 +156,15 @@ wrapArguments,\
 wrapAttributes,\
 wrapConditionalBodies,\
 wrapEnumCases,\
+wrapLoopBodies,\
 # wrapMultilineStatementBraces,\
 wrapSingleLineComments,\
 wrapSwitchCases,\
 yodaConditions
 
 --exclude Pods,\
-Generated
+Generated,\
+vendor
 
 ### comments
 # --sortDeclarations
