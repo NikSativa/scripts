@@ -157,6 +157,7 @@ wrapAttributes,\
 wrapConditionalBodies,\
 wrapEnumCases,\
 wrapLoopBodies,\
+# wrapMultilineConditionalAssignment,\
 # wrapMultilineStatementBraces,\
 wrapSingleLineComments,\
 wrapSwitchCases,\
