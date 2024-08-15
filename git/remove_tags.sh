@@ -1,12 +1,13 @@
 #!/bin/bash
 
-regexp="${1:-*}"
-keep="${2:-10}"
+keep="${1:-10}"
+regexp="${2:-*}"
 
-count=`git tag -l $regexp | wc -l`
+count=`git tag -l "$regexp" | wc -l`
 num=0
 
-for t in `git tag -l $regexp --sort=taggerdate`
+echo "Removing all tags except '$regexp' the last $keep tags..."
+for t in `git tag -l "$regexp" --sort=taggerdate`
 do
   if [ "$num" -ge `expr $count - $keep` ]
     then
