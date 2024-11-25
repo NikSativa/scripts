@@ -1,10 +1,9 @@
 #!/bin/sh
 
-version="2.1.4"
-bundler_exist=$(gem query -i -n bundle -v $version)
+bundler_exist=$(gem query -i -n bundle)
 
 if ! $bundler_exist ; then
-	gem install bundler -v $version
+	gem install bundler
 fi
 
 bundle $@
