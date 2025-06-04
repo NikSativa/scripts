@@ -1,5 +1,5 @@
 # options
---swiftversion 5.5
+--swiftversion 6
 --self init-only
 --importgrouping testable-last
 --commas inline
@@ -163,9 +163,16 @@ wrapSingleLineComments,\
 wrapSwitchCases,\
 yodaConditions
 
---exclude Pods,\
-Generated,\
-vendor
+# -- exclude --
+--exclude Pods/,\
+vendor/,\
+**/fastlane/,\
+**/build/,\
+.build/,\
+**Generated**,\
+**/*generated.swift,\
+**/Package.swift,\
+**/.swiftpm
 
 ### comments
 # --sortDeclarations

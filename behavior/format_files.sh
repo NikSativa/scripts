@@ -19,7 +19,9 @@ if which swiftformat >/dev/null; then
   if [ -f $swiftformat_path ]; then
     swiftformat --config $swiftformat_path $src_root_path
   else
-    swiftformat --config "$script_full_path/default.swiftformat" $src_root_path
+    cp "$script_full_path/default.swiftformat" "$swiftformat_path"
+    swiftformat --config "$swiftformat_path" $src_root_path
+    rm -rf "$swiftformat_path"
   fi
 else
   osascript -e "display notification \"warning: SwiftFormat not installed, run 'brew install SwiftFormat' or 'arch -x86_64 brew install swiftformat'\""
