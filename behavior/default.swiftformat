@@ -1,65 +1,4 @@
-# options
---swiftversion 6
---self init-only
---importgrouping testable-last
---commas inline
---trimwhitespace always
---indent 4
---tabwidth 4
---smarttabs enabled
---ifdef no-indent
---indentstrings false
---wraparguments after-first
---wrapparameters after-first
---wrapcollections before-first
---wrapconditions after-first
---wrapreturntype preserve
---closingparen same-line #or balanced
---funcattributes prev-line
---typeattributes prev-line
---varattributes preserve
---extensionacl on-extension
---patternlet inline #or hoist
---elseposition same-line
---guardelse same-line
---emptybraces no-space
---indentcase false
---xcodeindentation true
---linebreaks lf
---decimalgrouping ignore
---binarygrouping ignore
---octalgrouping ignore
---hexgrouping ignore
---fractiongrouping disabled
---exponentgrouping disabled
---hexliteralcase uppercase
---exponentcase uppercase
---semicolons never
---operatorfunc no-space
---ranges no-space
---stripunusedargs unnamed-only #or always
---header strip
---marktypes never
---markextensions if-not-empty
---typemark "MARK: - %t"
---groupedextension "MARK: - %c"
---extensionmark "MARK: - %t + %c"
---redundanttype explicit
---typeblanklines remove
---allman false
---enumnamespaces always
---someAny true
---yodaswap always
---anonymousforeach convert
---onelineforeach convert
---shortoptionals always
---voidtype void
-
-# wrap
-# --maxwidth 80
-# --wrapternary before-operators
-
-# rules \
+# -- rules --
 --rules \
 # acronyms,\
 andOperator,\
@@ -67,26 +6,33 @@ anyObjectProtocol,\
 applicationMain,\
 assertionFailures,\
 blankLineAfterImports,\
+blankLineAfterSwitchCase,\
+blankLinesAfterGuardStatements,\
 blankLinesAroundMark,\
 blankLinesAtEndOfScope,\
 blankLinesAtStartOfScope,\
 # blankLinesBetweenChainedFunctions,\
-# blankLinesBetweenImports,\
+blankLinesBetweenImports,\
 blankLinesBetweenScopes,\
 blockComments,\
 braces,\
-# conditionalAssignment,\
+conditionalAssignment,\
 consecutiveBlankLines,\
 consecutiveSpaces,\
+consistentSwitchCaseSpacing,\
 docComments,\
+docCommentsBeforeModifiers,\
 duplicateImports,\
 elseOnSameLine,\
 emptyBraces,\
-# enumNamespaces,\
+emptyExtensions,\
+enumNamespaces,\
+environmentEntry,\
 extensionAccessControl,\
 fileHeader,\
+fileMacro,\
 genericExtensions,\
-headerFileName,\
+# headerFileName,\ # fileHeader = strip
 hoistAwait,\
 hoistPatternLet,\
 hoistTry,\
@@ -102,12 +48,16 @@ noExplicitOwnership,\
 numberFormatting,\
 opaqueGenericParameters,\
 # organizeDeclarations,\
-# preferDouble,\
+preferCountWhere,\
 preferForLoop,\
 preferKeyPath,\
+# preferSwiftTesting,\
+privateStateVariables,\
+# propertyTypes,\
 redundantBackticks,\
 redundantBreak,\
 # redundantClosure,\
+redundantEquatable,\
 redundantExtensionACL,\
 redundantFileprivate,\
 redundantGet,\
@@ -120,11 +70,13 @@ redundantObjc,\
 redundantOptionalBinding,\
 redundantParens,\
 redundantPattern,\
+# redundantProperty
 redundantRawValues,\
 # redundantReturn,\
 redundantSelf,\
 redundantStaticSelf,\
 redundantType,\
+redundantTypedThrows,\
 redundantVoidReturnType,\
 semicolons,\
 sortDeclarations,\
@@ -144,12 +96,14 @@ spaceInsideGenerics,\
 spaceInsideParens,\
 # strongOutlets,\
 strongifiedSelf,\
+swiftTestingTestCaseNames,\
 todos,\
 trailingClosures,\
 trailingCommas,\
 trailingSpace,\
 typeSugar,\
 unusedArguments,\
+unusedPrivateDeclarations,\
 void,\
 # wrap,\
 wrapArguments,\
@@ -157,11 +111,13 @@ wrapAttributes,\
 wrapConditionalBodies,\
 wrapEnumCases,\
 wrapLoopBodies,\
-# wrapMultilineConditionalAssignment,\
+wrapMultilineConditionalAssignment,\
+wrapMultilineFunctionChains,\
 # wrapMultilineStatementBraces,\
 wrapSingleLineComments,\
 wrapSwitchCases,\
 yodaConditions
+
 
 # -- exclude --
 --exclude Pods/,\
@@ -174,6 +130,80 @@ vendor/,\
 **/Package.swift,\
 **/.swiftpm
 
-### comments
-# --sortDeclarations
-# Sorts the body of declarations with // swiftformat:sort and declarations # between // swiftformat:sort:begin and // swiftformat:sort:end comments.
+
+# -- options --
+--swiftversion 6
+--self init-only
+--importgrouping testable-last
+--trimwhitespace always #default
+--indent 4
+--tabwidth 4
+--smarttabs enabled #default
+--ifdef no-indent
+--xcodeindentation true
+--indentstrings false #default
+--varattributes preserve
+--extensionacl on-extension #default
+--patternlet inline #or hoist
+--elseposition same-line #default
+--guardelse same-line #default
+--emptybraces no-space #default
+--indentcase false
+--linebreaks lf #default
+--decimalgrouping ignore
+--binarygrouping ignore
+--octalgrouping ignore
+--hexgrouping ignore
+--fractiongrouping disabled
+--exponentgrouping disabled
+--hexliteralcase uppercase
+--exponentcase uppercase
+--semicolons never #default
+--operatorfunc no-space
+--ranges no-space
+--typedelimiter space-after #default
+--stripunusedargs unnamed-only #or always
+--header strip
+--marktypes never
+--typemark "MARK: - %t"
+--markextensions if-not-empty
+--extensionmark "MARK: - %t + %c"
+--groupedextension "MARK: - %c"
+--redundanttype explicit
+--typeblanklines remove
+--allman false
+--enumnamespaces always #default
+--someAny false
+--yodaswap always
+--anonymousforeach convert #default
+--inlinedforeach convert
+--shortoptionals always
+--voidtype void #default
+--lineaftermarks true #default
+--condassignment after-property #default
+--doccomments before-declarations #default
+--propertytypes explicit
+--inferredtypes exclude-cond-exprs #default
+--nilinit remove #default
+--commas inline # `remove last comma in arrays` or "always" `add..` (default)
+--wrapenumcases always #default
+#--maxwidth 120
+
+# -- wraparguments --
+--wraparguments after-first
+--wrapparameters after-first
+--wrapcollections before-first
+--closingparen same-line #or balanced
+--callsiteparen same-line #or balanced
+--wrapreturntype never
+--wrapconditions after-first
+--wraptypealiases preserve
+--wrapeffects never
+
+# -- wrapAttributes --
+--funcattributes prev-line
+--typeattributes prev-line
+--storedvarattrs prev-line
+--computedvarattrs prev-line
+--complexattrs prev-line
+#--noncomplexattrs # List of @attributes to exclude from complexattrs rule
