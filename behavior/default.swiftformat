@@ -52,7 +52,7 @@ preferCountWhere,\
 preferForLoop,\
 preferKeyPath,\
 # preferSwiftTesting,\
-privateStateVariables,\
+# privateStateVariables,\
 # propertyTypes,\
 redundantBackticks,\
 redundantBreak,\
@@ -132,7 +132,7 @@ vendor/,\
 
 
 # -- options --
---swiftversion 6
+--swiftversion 5.9
 --self init-only
 --importgrouping testable-last
 --trimwhitespace always #default
