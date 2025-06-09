@@ -42,7 +42,7 @@ isEmpty,\
 leadingDelimiters,\
 linebreakAtEndOfFile,\
 linebreaks,\
-markTypes,\
+# markTypes,\
 modifierOrder,\
 noExplicitOwnership,\
 numberFormatting,\
