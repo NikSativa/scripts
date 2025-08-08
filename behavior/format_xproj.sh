@@ -1,5 +1,12 @@
 #!/bin/bash
 
+silent=false
+for arg in "$@"; do
+  if [[ "$arg" == "--silent" ]]; then
+    silent=true
+  fi
+done
+
 # add swiftlint swiftformat to PATH
 export PATH=/usr/local/bin:$PATH
 
@@ -19,10 +26,15 @@ for project_path in $(find $src_root_path -name "*.xcodeproj" -not -path "$src_r
   if [ -f $shell_sort_path ]; then
     perl $shell_sort_path -w $project_path
   else
-    osascript -e "display notification \"warning: can't find sort_Xcode_project_file, use download_sort_Xcode_project_file.sh\""
+    if [ "$silent" = false ]; then
+      osascript -e "display notification \"warning: can't find sort_Xcode_project_file, use download_sort_Xcode_project_file.sh\""
+    fi
     exit 1
   fi
 done
 
-osascript -e "display notification \"xpoj sorted\""
+if [ "$silent" = false ]; then
+  osascript -e "display notification \"xpoj sorted\""
+fi
+
 exit 0

@@ -1,5 +1,12 @@
 #!/bin/bash
 
+silent=false
+for arg in "$@"; do
+  if [[ "$arg" == "--silent" ]]; then
+    silent=true
+  fi
+done
+
 # add swiftlint swiftformat to PATH
 export PATH=/usr/local/bin:$PATH
 
@@ -24,9 +31,14 @@ if which swiftformat >/dev/null; then
     rm -rf "$swiftformat_path"
   fi
 else
-  osascript -e "display notification \"warning: SwiftFormat not installed, run 'brew install SwiftFormat' or 'arch -x86_64 brew install swiftformat'\""
+  if [ "$silent" = false ]; then
+    osascript -e "display notification \"warning: SwiftFormat not installed, run 'brew install SwiftFormat' or 'arch -x86_64 brew install swiftformat'\""
+  fi
   exit 1
 fi
 
-osascript -e "display notification \"files formated\""
+if [ "$silent" = false ]; then
+  osascript -e "display notification \"files formated\""
+fi
+
 exit 0
