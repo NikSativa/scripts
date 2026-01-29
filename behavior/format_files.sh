@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -uo pipefail
+
 silent=false
 for arg in "$@"; do
   if [[ "$arg" == "--silent" ]]; then
@@ -7,38 +9,44 @@ for arg in "$@"; do
   fi
 done
 
-# add swiftlint swiftformat to PATH
-export PATH=/usr/local/bin:$PATH
+# Add swiftformat to PATH
+export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
 
-script_full_path=$(dirname "$0")
-src_root_path=$(PWD)
+# Resolve script directory to absolute path (works when invoked from any cwd)
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-if [[ $src_root_path == *".swiftpm/xcode"* ]]; then
-  src_root_path=$src_root_path/../../
+# Project root: current directory, or two levels up if inside .swiftpm/xcode
+src_root_path=${PWD}
+if [[ "$src_root_path" == *".swiftpm/xcode"* ]]; then
+  src_root_path=$(cd "$src_root_path/../.." && pwd)
 fi
 
-if ! which swiftformat >/dev/null; then
+# Check for swiftformat (command -v is POSIX, preferred over deprecated which)
+if ! command -v swiftformat &>/dev/null; then
+  if [[ "$silent" == false ]]; then
+    osascript -e 'display notification "Installing SwiftFormat…" with title "Format Files"'
+  fi
   brew install swiftformat
 fi
 
-if which swiftformat >/dev/null; then
-  swiftformat_path="$src_root_path/.swiftformat"
-  if [ -f $swiftformat_path ]; then
-    swiftformat --config $swiftformat_path $src_root_path
+if command -v swiftformat &>/dev/null; then
+  swiftformat_config="$src_root_path/.swiftformat"
+  if [[ -f "$swiftformat_config" ]]; then
+    swiftformat --config "$swiftformat_config" "$src_root_path"
   else
-    cp "$script_full_path/default.swiftformat" "$swiftformat_path"
-    swiftformat --config "$swiftformat_path" $src_root_path
-    rm -rf "$swiftformat_path"
+    cp "$script_dir/default.swiftformat" "$swiftformat_config"
+    swiftformat --config "$swiftformat_config" "$src_root_path"
+    rm -f "$swiftformat_config"
   fi
 else
-  if [ "$silent" = false ]; then
-    osascript -e "display notification \"warning: SwiftFormat not installed, run 'brew install SwiftFormat' or 'arch -x86_64 brew install swiftformat'\""
+  if [[ "$silent" == false ]]; then
+    osascript -e 'display notification "SwiftFormat not found. Run: brew install swiftformat" with title "Format Files"'
   fi
   exit 1
 fi
 
-if [ "$silent" = false ]; then
-  osascript -e "display notification \"files formated\""
+if [[ "$silent" == false ]]; then
+  osascript -e 'display notification "Files formatted" with title "Format Files"'
 fi
 
 exit 0

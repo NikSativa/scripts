@@ -125,12 +125,8 @@ for my $projectFile (@ARGV) {
                 }
                 push @children, $childLine;
             }
-            if ($lastTwo[0] =~ m#^\s+\Q$mainGroup\E = \{$#) {
-                # Don't sort mainGroup
-                print $OUT @children;
-            } else {
-                print $OUT sort sortChildrenByFileName @children;
-            }
+            # Sort all groups including mainGroup (App, Core, UI, …)
+            print $OUT sort sortChildrenByFileName @children;
             print $OUT $endMarker;
         } else {
             print $OUT $line;

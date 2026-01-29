@@ -14,7 +14,7 @@ blankLinesAtStartOfScope,\
 # blankLinesBetweenChainedFunctions,\
 blankLinesBetweenImports,\
 blankLinesBetweenScopes,\
-blockComments,\
+# blockComments,\
 braces,\
 conditionalAssignment,\
 consecutiveBlankLines,\
@@ -38,13 +38,16 @@ hoistPatternLet,\
 hoistTry,\
 indent,\
 initCoderUnavailable,\
-isEmpty,\
+# isEmpty,\
 leadingDelimiters,\
 linebreakAtEndOfFile,\
 linebreaks,\
 # markTypes,\
 modifierOrder,\
-noExplicitOwnership,\
+modifiersOnSameLine,\
+# noExplicitOwnership,\
+noForceTryInTests,\
+noForceUnwrapInTests,\
 numberFormatting,\
 opaqueGenericParameters,\
 # organizeDeclarations,\
@@ -54,6 +57,7 @@ preferKeyPath,\
 # preferSwiftTesting,\
 # privateStateVariables,\
 # propertyTypes,\
+redundantAsync,\
 redundantBackticks,\
 redundantBreak,\
 # redundantClosure,\
@@ -65,23 +69,28 @@ redundantInit,\
 # redundantInternal,\
 redundantLet,\
 redundantLetError,\
+redundantMemberwiseInit,\
 redundantNilInit,\
 redundantObjc,\
 redundantOptionalBinding,\
 redundantParens,\
 redundantPattern,\
-# redundantProperty
+# redundantProperty,\
+redundantPublic,\
 redundantRawValues,\
 # redundantReturn,\
 redundantSelf,\
 redundantStaticSelf,\
+redundantThrows,\
 redundantType,\
 redundantTypedThrows,\
+redundantViewBuilder,\
 redundantVoidReturnType,\
 semicolons,\
+simplifyGenericConstraints,\
 sortDeclarations,\
 sortImports,\
-sortSwitchCases,\
+# sortSwitchCases,\
 sortTypealiases,\
 spaceAroundBraces,\
 spaceAroundBrackets,\
@@ -103,17 +112,19 @@ trailingCommas,\
 trailingSpace,\
 typeSugar,\
 unusedArguments,\
-unusedPrivateDeclarations,\
+# unusedPrivateDeclarations,\
 void,\
 # wrap,\
 wrapArguments,\
 wrapAttributes,\
 wrapConditionalBodies,\
 wrapEnumCases,\
+wrapFunctionBodies,\
 wrapLoopBodies,\
 wrapMultilineConditionalAssignment,\
 wrapMultilineFunctionChains,\
 # wrapMultilineStatementBraces,\
+wrapPropertyBodies,\
 wrapSingleLineComments,\
 wrapSwitchCases,\
 yodaConditions
