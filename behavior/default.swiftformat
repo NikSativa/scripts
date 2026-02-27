@@ -6,7 +6,7 @@ anyObjectProtocol,\
 applicationMain,\
 assertionFailures,\
 blankLineAfterImports,\
-blankLineAfterSwitchCase,\
+# blankLineAfterSwitchCase,\
 blankLinesAfterGuardStatements,\
 blankLinesAroundMark,\
 blankLinesAtEndOfScope,\
@@ -48,10 +48,12 @@ modifiersOnSameLine,\
 # noExplicitOwnership,\
 noForceTryInTests,\
 noForceUnwrapInTests,\
+# noGuardInTests,\
 numberFormatting,\
 opaqueGenericParameters,\
 # organizeDeclarations,\
 preferCountWhere,\
+preferFinalClasses,\
 preferForLoop,\
 preferKeyPath,\
 # preferSwiftTesting,\
@@ -87,8 +89,9 @@ redundantTypedThrows,\
 redundantViewBuilder,\
 redundantVoidReturnType,\
 semicolons,\
-simplifyGenericConstraints,\
-sortDeclarations,\
+singlePropertyPerLine,\
+# simplifyGenericConstraints,\
+# sortDeclarations,\
 sortImports,\
 # sortSwitchCases,\
 sortTypealiases,\
@@ -106,6 +109,7 @@ spaceInsideParens,\
 # strongOutlets,\
 strongifiedSelf,\
 swiftTestingTestCaseNames,\
+testSuiteAccessControl,\
 todos,\
 trailingClosures,\
 trailingCommas,\
@@ -113,11 +117,13 @@ trailingSpace,\
 typeSugar,\
 unusedArguments,\
 # unusedPrivateDeclarations,\
+urlMacro,\
+# validateTestCases,\
 void,\
 # wrap,\
 wrapArguments,\
 wrapAttributes,\
-wrapConditionalBodies,\
+# wrapConditionalBodies,\
 wrapEnumCases,\
 wrapFunctionBodies,\
 wrapLoopBodies,\
@@ -155,7 +161,7 @@ vendor/,\
 --indentstrings false #default
 --varattributes preserve
 --extensionacl on-extension #default
---patternlet inline #or hoist
+--patternlet hoist #or hoist
 --elseposition same-line #default
 --guardelse same-line #default
 --emptybraces no-space #default
@@ -186,11 +192,12 @@ vendor/,\
 --enumnamespaces always #default
 --someAny false
 --yodaswap always
---anonymousforeach convert #default
+--anonymousforeach ignore #default
 --inlinedforeach convert
 --shortoptionals always
 --voidtype void #default
 --lineaftermarks true #default
+--line-between-guards true
 --condassignment after-property #default
 --doccomments before-declarations #default
 --propertytypes explicit

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -uo pipefail
+set -euo pipefail
 
 silent=false
 for arg in "$@"; do
@@ -25,6 +25,13 @@ fi
 if ! command -v swiftformat &>/dev/null; then
   if [[ "$silent" == false ]]; then
     osascript -e 'display notification "Installing SwiftFormat…" with title "Format Files"'
+  fi
+  if ! command -v brew &>/dev/null; then
+    if [[ "$silent" == false ]]; then
+      osascript -e 'display notification "Homebrew not found. Install Homebrew, then run: brew install swiftformat" with title "Format Files"'
+    fi
+    echo "error: Homebrew not found. Install Homebrew, then run: brew install swiftformat" >&2
+    exit 1
   fi
   brew install swiftformat
 fi
